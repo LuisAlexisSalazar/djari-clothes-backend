@@ -6,5 +6,11 @@ from django.urls import path, re_path, include
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
-                  re_path('', include('applications.gestorPolos.urls'))
+                  # --Views APIS para front-end
+                  re_path('', include('applications.gestorPolos.urls')),
+                  re_path('', include('applications.gestorUsuarios.urls')),
+                  re_path('', include('applications.gestorVentas.urls')),
+                  # --ViewSets: CRUDS
+                  re_path('', include('applications.gestorPolos.routers')),
+
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

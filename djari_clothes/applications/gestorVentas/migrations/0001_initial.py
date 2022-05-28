@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('count_polo', models.IntegerField(max_length=10)),
-                ('price_sub_total', models.FloatField()),
+                ('price_base', models.FloatField()),
                 ('id_polo', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='gestorPolos.Polo')),
                 ('id_sale', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='gestorVentas.Sale')),
             ],
