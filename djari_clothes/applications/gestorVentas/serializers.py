@@ -11,4 +11,4 @@ class SaleSerializer(serializers.ModelSerializer):
 class DetailSaleSerializer(serializers.ModelSerializer):
     class Meta:
         model = DetailSale
-        fields = ('count_polo', 'id_polo')
+        fields = ('count_polo', 'polo')

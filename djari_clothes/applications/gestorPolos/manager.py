@@ -15,7 +15,7 @@ class PoloManager(models.Manager):
 class PoloFavoriteManager(models.Manager):
     def get_list_most_popular(self):
         # https://stackoverflow.com/questions/22124549/django-models-get-list-of-id
-        list_favorites_polos = self.values("id_polo").annotate(count_favorite=Count("id_client")).order_by(
-            '-count_favorite')[:10].values_list('id_polo', flat=True)
+        list_favorites_polos = self.values("polo").annotate(count_favorite=Count("client")).order_by(
+            '-count_favorite')[:10].values_list('polo', flat=True)
 
         return list_favorites_polos

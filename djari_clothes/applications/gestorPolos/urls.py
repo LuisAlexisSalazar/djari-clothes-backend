@@ -8,6 +8,7 @@ urlpatterns = [
     path('api/home/recentPolos/', views.RecentPolosView.as_view(), name='recent'),
     path('api/home/popularPolos/', views.PopularPolosView.as_view(), name='popular'),
     path('api/registerPoloFavorite/', views.RegisterFavoritePoloView.as_view(), name='registerPopularFavorite'),
+    path('api/paginaItem/detailsPolo/<pk>', views.DetailsPoloView.as_view(), name='polo_details'),
 
     # --View to fill data
     path('fillPolos/', views.FillPolosView.as_view()),

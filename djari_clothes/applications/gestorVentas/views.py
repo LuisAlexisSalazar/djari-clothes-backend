@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Sale, DetailSale, Polo, ClientProfile
+from .models import Sale, DetailSale, Polo, User
 from .serializers import SaleSerializer, DetailSaleSerializer
 from rest_framework.generics import GenericAPIView
 from rest_framework.views import APIView
@@ -14,11 +14,12 @@ class WholeSaleView(APIView):
     serializer_class = DetailSaleSerializer
 
     def get(self, request):
-        name_file = "detailSale4.json"
+        name_file = "detailSale5.json"
         data = read_json(name_file)
-        id_client_temp = 10
-        client = ClientProfile.objects.get(pk=id_client_temp)
-        sale = Sale.objects.create(amount=0, count=0, id_client=client)
+
+        id_client_temp = 7
+        client = User.objects.get(pk=id_client_temp)
+        sale = Sale.objects.create(amount=0, count=0, client=client)
         sale.save()
 
         amount = 0
@@ -30,16 +31,16 @@ class WholeSaleView(APIView):
             print(serializer.is_valid())
 
             if serializer.is_valid():
-                polo = serializer.validated_data['id_polo']
+                polo = serializer.validated_data['polo']
 
                 print("*" * 10)
                 print("Obtuvo el polo")
 
                 detail_sale_item = DetailSale.objects.create(
                     count_polo=serializer.validated_data['count_polo'],
-                    price_sub_total=polo.price,
-                    id_sale=sale,
-                    id_polo=polo,
+                    price=polo.price,
+                    sale=sale,
+                    polo=polo,
                 )
                 amount = amount + polo.price * serializer.validated_data["count_polo"]
                 count = count + serializer.validated_data["count_polo"]

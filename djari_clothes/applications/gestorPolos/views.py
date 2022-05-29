@@ -1,15 +1,18 @@
+from django.contrib.auth.models import User
 from rest_framework import viewsets
-from rest_framework.generics import ListAPIView, CreateAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import Polo, PoloFavorites
 from .serializers import PoloSerializerHome, PoloSerializer, PoloFavoritesSerializer, \
-    RegisterPoloSerializer
+    RegisterPoloSerializer, PaginationCatalogoSerializer
 from djari_clothes.Fill_data.utils import read_json
 
-
 # +View to application
+from ..gestorUsuarios.models import AdminProfile
+
+
 class RecentPolosView(ListAPIView):
     serializer_class = PoloSerializerHome
 
@@ -39,14 +42,27 @@ class RegisterFavoritePoloView(CreateAPIView):
 
         polo = Polo.objects.get(pk=id_polo)
         user = self.request.user
-        print("*" * 10, user)
-        print("*" * 10, type(user))
-        try:
-            polo_favorite = PoloFavorites(id_client=user, id_polo=polo)
+
+        polo_favorite = PoloFavorites.objects.filter(client=user, polo=polo)
+        if polo_favorite.exists():
+            polo_favorite.delete()
+            return Response({'msj': 'Asignación Removida'})
+        else:
+            polo_favorite = PoloFavorites(client=user, polo=polo)
             polo_favorite.save()
             return Response({'msj': 'Exitosa asignación'})
-        except:
-            return Response({'msj': 'Hubo un problema para asignar'})
+
+
+class DetailsPoloView(RetrieveAPIView):
+    queryset = Polo.objects.all()
+    serializer_class = PoloSerializer
+
+
+class PolosCatalogoView(ListAPIView):
+    serializer_class = PoloSerializerHome
+    queryset = Polo.objects.all()
+    pagination_class = PaginationCatalogoSerializer
+# class CatalogoView(APIView):
 
 
 # +View to Fill Data
@@ -71,7 +87,6 @@ class FillPolosView(APIView):
                     stock=serializer.validated_data['stock'],
                     talla=serializer.validated_data['talla'],
                     marca=serializer.validated_data['marca'],
-                    id_admin=serializer.validated_data['id_admin'],
                 )
                 PoloItem.save()
 
@@ -90,14 +105,16 @@ class FillFavoritiesPolosView(APIView):
         for d in data:
             # print(d)
             serializer = self.serializer_class(data=d)
-            print(serializer.is_valid())
-            print(serializer.errors)
-            if serializer.is_valid():
-                favorite_polo_item = PoloFavorites.objects.create(
-                    id_client=serializer.validated_data['id_client'],
-                    id_polo=serializer.validated_data['id_polo'],
-                )
-                favorite_polo_item.save()
+
+            if serializer.is_valid(raise_exception=True):
+                # client = User.objects.get(pk=serializer.validated_data['client'])
+                client = serializer.validated_data['client']
+
+                if not (AdminProfile.objects.filter(user=client)):
+                    favorite_polo_item = PoloFavorites.objects.filter(
+                        client=client,
+                        polo=serializer.validated_data['polo'])
+                    favorite_polo_item.save()
 
         return Response({
             'status': "completado registro de polos favoritos"

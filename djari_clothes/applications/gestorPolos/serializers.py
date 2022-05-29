@@ -26,6 +26,23 @@ class PoloSerializerHome(serializers.ModelSerializer):
         )
 
 
+class PoloSerializerHome(serializers.ModelSerializer):
+    class Meta:
+        model = Polo
+        fields = (
+            'id',
+            'get_image',
+            'name_modelo',
+            'price',
+            'marca',
+        )
+
+
+class PaginationCatalogoSerializer(pagination.PageNumberPagination):
+    page_size = 6
+    max_page_size = 20
+
+
 class RegisterPoloSerializer(serializers.Serializer):
     id_polo = serializers.IntegerField()
 

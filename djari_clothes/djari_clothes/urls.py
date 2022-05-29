@@ -12,5 +12,6 @@ urlpatterns = [
                   re_path('', include('applications.gestorVentas.urls')),
                   # --ViewSets: CRUDS
                   re_path('', include('applications.gestorPolos.routers')),
+                  re_path('', include('applications.gestorUsuarios.routers')),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

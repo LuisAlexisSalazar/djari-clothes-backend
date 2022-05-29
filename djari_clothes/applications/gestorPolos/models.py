@@ -1,6 +1,6 @@
 from django.db import models
 from model_utils.models import TimeStampedModel
-from applications.gestorUsuarios.models import AdminProfile, ClientProfile
+from applications.gestorUsuarios.models import AdminProfile, User
 
 from .manager import PoloManager, PoloFavoriteManager
 
@@ -18,10 +18,13 @@ class Polo(TimeStampedModel):
         (3, 'Azul'),
     )
 
+    # *Filtro
     color = models.IntegerField(choices=COLORS)
     path_image = models.ImageField(upload_to='polos', default=BASE_DIR + "\\media\\polos\default.jpg")
     name_modelo = models.CharField(max_length=15)
     description = models.CharField(max_length=200)
+    # *Filtro
+    # ? Front-end dara Rango de precios
     price = models.FloatField()
     stock = models.IntegerField()
 
@@ -31,11 +34,11 @@ class Polo(TimeStampedModel):
         ("L", 'Grande'),
         ("XL", 'X-Grande'),
     )
+    # *Filtro
     talla = models.CharField(max_length=2, choices=TALAS)
     # date_input = models.DateField(null=False) #lo heredamos
-
+    # *Filtro
     marca = models.CharField(max_length=10)
-    id_admin = models.ForeignKey(AdminProfile, on_delete=models.CASCADE)
 
     def get_image(self):
         if self.path_image:
@@ -44,6 +47,6 @@ class Polo(TimeStampedModel):
 
 
 class PoloFavorites(TimeStampedModel):
-    id_client = models.ForeignKey(ClientProfile, on_delete=models.DO_NOTHING)
-    id_polo = models.ForeignKey(Polo, on_delete=models.DO_NOTHING)
+    client = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    polo = models.ForeignKey(Polo, on_delete=models.DO_NOTHING)
     objects = PoloFavoriteManager()

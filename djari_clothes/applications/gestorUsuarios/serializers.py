@@ -1,14 +1,16 @@
 from rest_framework import serializers, pagination
-from .models import AdminProfile, ClientProfile
+from .models import AdminProfile, User
 
 
 class AdminSerializer(serializers.ModelSerializer):
+    id_admin = serializers.IntegerField()
+
     class Meta:
         model = AdminProfile
-        fields = '__all__'
+        fields = ('numberPhone', 'id_admin')
 
 
-class ClientSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ClientProfile
-        fields = '__all__'
+        model = User
+        fields = ('username', 'password', 'email')
