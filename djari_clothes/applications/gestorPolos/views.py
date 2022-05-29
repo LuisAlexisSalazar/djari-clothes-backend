@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 
 from .models import Polo, PoloFavorites
 from .serializers import PoloSerializerHome, PoloSerializer, PoloFavoritesSerializer, \
-    RegisterPoloSerializer, PaginationCatalogoSerializer
+    RegisterPoloSerializer, PaginationCatalogoSerializer, FieldsToFilter
 from djari_clothes.Fill_data.utils import read_json
 
 # +View to application
@@ -62,7 +62,26 @@ class PolosCatalogoView(ListAPIView):
     serializer_class = PoloSerializerHome
     queryset = Polo.objects.all()
     pagination_class = PaginationCatalogoSerializer
+
+
 # class CatalogoView(APIView):
+
+class FilterPolosCatalogoView(APIView):
+    serializer_class = FieldsToFilter
+    pagination_class = PaginationCatalogoSerializer
+
+    def get(self, request):
+        serializer = self.serializer_class(data=request.data)
+        print(request.data, "*" * 10)
+        serializer.is_valid()
+        print(serializer.errors)
+        if serializer.is_valid():
+            polos = Polo.objects.get_polos_to_filter(serializer.validated_data)
+
+            # !Importante poner many=TRUE
+            serializer = PoloSerializerHome(polos, many=True)
+            return Response(serializer.data)
+        return Response({'msj': 'Error en filtrar'})
 
 
 # +View to Fill Data
@@ -86,7 +105,7 @@ class FillPolosView(APIView):
                     price=serializer.validated_data['price'],
                     stock=serializer.validated_data['stock'],
                     talla=serializer.validated_data['talla'],
-                    marca=serializer.validated_data['marca'],
+                    marcas=serializer.validated_data['marcas'],
                 )
                 PoloItem.save()
 
@@ -111,7 +130,7 @@ class FillFavoritiesPolosView(APIView):
                 client = serializer.validated_data['client']
 
                 if not (AdminProfile.objects.filter(user=client)):
-                    favorite_polo_item = PoloFavorites.objects.filter(
+                    favorite_polo_item = PoloFavorites.objects.create(
                         client=client,
                         polo=serializer.validated_data['polo'])
                     favorite_polo_item.save()

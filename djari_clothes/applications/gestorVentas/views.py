@@ -14,10 +14,10 @@ class WholeSaleView(APIView):
     serializer_class = DetailSaleSerializer
 
     def get(self, request):
-        name_file = "detailSale5.json"
+        name_file = "detailSale2.json"
         data = read_json(name_file)
 
-        id_client_temp = 7
+        id_client_temp = 9
         client = User.objects.get(pk=id_client_temp)
         sale = Sale.objects.create(amount=0, count=0, client=client)
         sale.save()

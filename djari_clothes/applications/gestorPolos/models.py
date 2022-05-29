@@ -36,9 +36,14 @@ class Polo(TimeStampedModel):
     )
     # *Filtro
     talla = models.CharField(max_length=2, choices=TALAS)
-    # date_input = models.DateField(null=False) #lo heredamos
+    MARCAS = (
+        (1, 'djari'),
+        (2, 'Gucci'),
+        (3, 'Nike'),
+        (4, 'Adidas'),
+    )
     # *Filtro
-    marca = models.CharField(max_length=10)
+    marcas = models.IntegerField(default=1, choices=MARCAS)
 
     def get_image(self):
         if self.path_image:

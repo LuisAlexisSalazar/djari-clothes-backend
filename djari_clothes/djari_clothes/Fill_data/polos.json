@@ -6,7 +6,7 @@
     "price": 81.65,
     "stock": 4,
     "talla": "S",
-    "marca": "Zamit"
+    "marcas": 1
   },
   {
     "color": 3,
@@ -15,7 +15,7 @@
     "price": 43.98,
     "stock": 4,
     "talla": "L",
-    "marca": "Latlux"
+    "marcas": 2
   },
   {
     "color": 1,
@@ -24,7 +24,7 @@
     "price": 54.94,
     "stock": 2,
     "talla": "S",
-    "marca": "Kanlam"
+    "marcas": 3
   },
   {
     "color": 2,
@@ -33,7 +33,7 @@
     "price": 36.7,
     "stock": 3,
     "talla": "XL",
-    "marca": "Sub-Ex"
+    "marcas": 4
   },
   {
     "color": 2,
@@ -42,7 +42,7 @@
     "price": 88.89,
     "stock": 7,
     "talla": "L",
-    "marca": "Treeflex"
+    "marcas": 1
   },
   {
     "color": 1,
@@ -51,7 +51,7 @@
     "price": 67.16,
     "stock": 1,
     "talla": "S",
-    "marca": "Domainer"
+    "marcas": 2
   },
   {
     "color": 3,
@@ -60,7 +60,7 @@
     "price": 37.39,
     "stock": 5,
     "talla": "S",
-    "marca": "Lotlux"
+    "marcas": 3
   },
   {
     "color": 3,
@@ -69,7 +69,7 @@
     "price": 86.28,
     "stock": 9,
     "talla": "M",
-    "marca": "Konklab"
+    "marcas": 4
   },
   {
     "color": 1,
@@ -78,7 +78,7 @@
     "price": 95.9,
     "stock": 1,
     "talla": "M",
-    "marca": "Solarbreeze"
+    "marcas": 1
   },
   {
     "color": 1,
@@ -87,7 +87,7 @@
     "price": 77.96,
     "stock": 4,
     "talla": "L",
-    "marca": "Asoka"
+    "marcas": 2
   },
   {
     "color": 3,
@@ -96,7 +96,7 @@
     "price": 79.43,
     "stock": 1,
     "talla": "L",
-    "marca": "Aerified"
+    "marcas": 3
   },
   {
     "color": 3,
@@ -105,7 +105,7 @@
     "price": 43.21,
     "stock": 2,
     "talla": "L",
-    "marca": "Stim"
+    "marcas": 4
   },
   {
     "color": 1,
@@ -114,7 +114,7 @@
     "price": 62.01,
     "stock": 7,
     "talla": "M",
-    "marca": "Lotlux"
+    "marcas": 1
   },
   {
     "color": 3,
@@ -123,7 +123,7 @@
     "price": 47.66,
     "stock": 7,
     "talla": "M",
-    "marca": "Home Ing"
+    "marcas": 2
   },
   {
     "color": 2,
@@ -132,7 +132,7 @@
     "price": 30.29,
     "stock": 9,
     "talla": "XL",
-    "marca": "Toughjoyfax"
+    "marcas": 3
   },
   {
     "color": 3,
@@ -141,7 +141,7 @@
     "price": 93.47,
     "stock": 3,
     "talla": "M",
-    "marca": "Zoolab"
+    "marcas": 4
   },
   {
     "color": 1,
@@ -150,7 +150,7 @@
     "price": 62.48,
     "stock": 3,
     "talla": "XL",
-    "marca": "Bytecard"
+    "marcas": 1
   },
   {
     "color": 1,
@@ -159,7 +159,7 @@
     "price": 99.57,
     "stock": 10,
     "talla": "L",
-    "marca": "Matsoft"
+    "marcas": 2
   },
   {
     "color": 2,
@@ -168,7 +168,7 @@
     "price": 50.91,
     "stock": 10,
     "talla": "XL",
-    "marca": "Flowdesk"
+    "marcas": 3
   },
   {
     "color": 2,
@@ -177,7 +177,7 @@
     "price": 71.18,
     "stock": 2,
     "talla": "S",
-    "marca": "Trippledex"
+    "marcas": 4
   },
   {
     "color": 3,
@@ -186,7 +186,7 @@
     "price": 37.93,
     "stock": 6,
     "talla": "XL",
-    "marca": "Y-find"
+    "marcas": 1
   },
   {
     "color": 1,
@@ -195,7 +195,7 @@
     "price": 67.2,
     "stock": 3,
     "talla": "S",
-    "marca": "Alpha"
+    "marcas": 2
   },
   {
     "color": 1,
@@ -204,7 +204,7 @@
     "price": 54.38,
     "stock": 6,
     "talla": "S",
-    "marca": "Cardguard"
+    "marcas": 3
   },
   {
     "color": 1,
@@ -213,7 +213,7 @@
     "price": 59.42,
     "stock": 6,
     "talla": "L",
-    "marca": "Zontrax"
+    "marcas": 4
   },
   {
     "color": 1,
@@ -222,7 +222,7 @@
     "price": 83.32,
     "stock": 3,
     "talla": "S",
-    "marca": "Konklab"
+    "marcas": 1
   },
   {
     "color": 3,
@@ -231,7 +231,7 @@
     "price": 53.14,
     "stock": 2,
     "talla": "S",
-    "marca": "Sub-Ex"
+    "marcas": 2
   },
   {
     "color": 3,
@@ -240,7 +240,7 @@
     "price": 87.95,
     "stock": 2,
     "talla": "XL",
-    "marca": "Asoka"
+    "marcas": 3
   },
   {
     "color": 1,
@@ -249,7 +249,7 @@
     "price": 92.57,
     "stock": 1,
     "talla": "L",
-    "marca": "Kanlam"
+    "marcas": 4
   },
   {
     "color": 2,
@@ -258,7 +258,7 @@
     "price": 80.53,
     "stock": 7,
     "talla": "L",
-    "marca": "Tin"
+    "marcas": 1
   },
   {
     "color": 1,
@@ -267,6 +267,6 @@
     "price": 87.66,
     "stock": 6,
     "talla": "M",
-    "marca": "Sonsing"
+    "marcas": 2
   }
 ]
