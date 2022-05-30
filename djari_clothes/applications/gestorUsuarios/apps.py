@@ -2,4 +2,5 @@ from django.apps import AppConfig
 
 
 class GestorusuariosConfig(AppConfig):
-    name = 'gestorUsuarios'
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'applications.gestorUsuarios'

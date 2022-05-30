@@ -2,4 +2,5 @@ from django.apps import AppConfig
 
 
 class GestorventasConfig(AppConfig):
-    name = 'gestorVentas'
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'applications.gestorVentas'
