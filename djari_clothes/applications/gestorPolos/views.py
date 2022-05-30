@@ -36,8 +36,6 @@ class RegisterFavoritePoloView(CreateAPIView):
     def create(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
-        # print(serializer, "*" * 5)
-        # print(serializer.data, "*" * 5)
         id_polo = serializer.validated_data['id_polo']
 
         polo = Polo.objects.get(pk=id_polo)

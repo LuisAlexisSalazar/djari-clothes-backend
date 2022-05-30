@@ -6,8 +6,9 @@ from .manager import PoloManager, PoloFavoriteManager
 
 from djari_clothes.settings import BASE_DIR
 
-
 # Create your models here.
+
+PATH_IMAGE_DEFAULT = "\\polos\default.jpg"
 
 
 class Polo(TimeStampedModel):
@@ -20,7 +21,7 @@ class Polo(TimeStampedModel):
 
     # *Filtro
     color = models.IntegerField(choices=COLORS)
-    path_image = models.ImageField(upload_to='polos', default=BASE_DIR + "\\media\\polos\default.jpg")
+    path_image = models.ImageField(upload_to='polos', default=PATH_IMAGE_DEFAULT)
     name_modelo = models.CharField(max_length=15)
     description = models.CharField(max_length=200)
     # *Filtro
@@ -48,7 +49,7 @@ class Polo(TimeStampedModel):
     def get_image(self):
         if self.path_image:
             return "http://127.0.0.1:8000" + self.path_image.url
-        return ''
+        return PATH_IMAGE_DEFAULT
 
 
 class PoloFavorites(TimeStampedModel):

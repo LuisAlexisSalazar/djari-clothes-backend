@@ -1,12 +1,47 @@
 from django.shortcuts import render
 
 from .models import Sale, DetailSale, Polo, User
-from .serializers import SaleSerializer, DetailSaleSerializer
-from rest_framework.generics import GenericAPIView
+from .serializers import SaleSerializer, DetailSaleSerializer, DetailSail_to_ShopingCarSerializer
+from rest_framework.generics import GenericAPIView, CreateAPIView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from djari_clothes.Fill_data.utils import *
+
+
+# +View to System
+class SaleView(CreateAPIView):
+    serializer_class = DetailSail_to_ShopingCarSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            client = request.user
+            list_id_polos = serializer.validated_data['list_id_polos']
+            list_count = serializer.validated_data['list_count']
+            sale = Sale.objects.create(amount=0, count=0, client=client)
+            sale.save()
+
+            amountSale = 0
+            countSale = 0
+            polos = Polo.objects.filter(pk__in=list_id_polos)
+
+            for polo, count in zip(polos, list_count):
+                detail_sale = DetailSale.objects.create(
+                    count_polo=count,
+                    price=polo.price,
+                    sale=sale,
+                    polo=polo)
+                polo.stock = polo.stock - count
+                amountSale = amountSale + (polo.price * count)
+                countSale = countSale + count
+
+            sale.amount = amountSale
+            sale.count = countSale
+            sale.save()
+
+            return Response({'msj': 'venta exitosa'})
+        return Response(serializer.errors)
 
 
 # +View to Fill Data

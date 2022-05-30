@@ -18,3 +18,5 @@ class DetailSale(models.Model):
     price = models.FloatField(null=False)
     sale = models.ForeignKey(Sale, on_delete=models.CASCADE)
     polo = models.ForeignKey(Polo, on_delete=models.CASCADE)
+
+

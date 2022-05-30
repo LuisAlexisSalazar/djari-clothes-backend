@@ -1,18 +1,100 @@
 from django.shortcuts import render
 
 from .models import AdminProfile, User
-from .serializers import AdminSerializer, UserSerializer
+from .serializers import AdminSerializer, UserSerializer, UserRegisterSerializer, UserLoginSerializer, \
+    ResetPasswordSerializer, EmailSerializer
 from rest_framework.generics import GenericAPIView
 import json
 from rest_framework.views import APIView
+from rest_framework.generics import CreateAPIView, RetrieveAPIView
 from rest_framework.response import Response
 from djari_clothes.settings import *
 from djari_clothes.Fill_data.utils import *
+from django.db.models import Q
+from .utils import send_mail
+
+
+class CreateUserView(CreateAPIView):
+    serializer_class = UserRegisterSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data)
+
+        if serializer.is_valid(raise_exception=True):
+            username = serializer.validated_data['username']
+            password = serializer.validated_data['password']
+            email = serializer.validated_data['email']
+            first_name = serializer.validated_data['first_name']
+
+            user = User.objects.filter(Q(username=username) | Q(email=email))
+            if user.exists():
+                return Response({'msj': "Ya existe un usuario con email en uso o username, porfavor cambialo"})
+            else:
+                user = User.objects.create(username=username,
+                                           email=email,
+                                           password=password,
+                                           is_staff=True,
+                                           first_name=first_name)
+                return Response({'msj': "Usuario creado con exito"})
+
+
+class LoginUserView(APIView):
+    serializer_class = UserLoginSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+
+        if serializer.is_valid():
+            email = serializer.validated_data['email']
+            password = serializer.validated_data['password']
+            user = User.objects.filter(email=email, password=password)
+            if user.exists():
+                return Response({"Credenciales": True})
+            else:
+                return Response({"Credenciales": False})
+        return Response({"msj": "Error en el formato de datos"})
+
+
+class SendEmailResetPassword(APIView):
+    serializer_class = EmailSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+
+        if serializer.is_valid():
+            email = serializer.validated_data['email']
+            user = User.objects.get(email=email)
+            if user:
+                send_mail(str(user.id), to_emails=[user.email])
+                return Response({"StatusCorreo": True})
+            else:
+                return Response({"StatusCorreo": False})
+        return Response({"msj": "Error en el formato de datos"})
+
+
+class ResetPasswordView(APIView):
+    serializer_class = ResetPasswordSerializer
+
+    def put(self, request, pk):
+        serializer = self.serializer_class(data=request.data)
+
+        if serializer.is_valid(raise_exception=True):
+            password = serializer.validated_data['password']
+            confirmation_password = serializer.validated_data['confirmation_password']
+            print("Vives")
+            try:
+                client = User.objects.get(pk=pk)
+                if password != confirmation_password:
+                    return Response({"msj": "Error las contraseña deben ser iguales"})
+                else:
+                    client.set_password(password)
+                    client.save()
+                    return Response({"ResetPassword": True})
+            except:
+                return Response({"msj": "Error desconocido"})
 
 
 # +View to Fill Data
-
-
 class FillAdminView(APIView):
     serializer_class = AdminSerializer
 
