@@ -10,6 +10,7 @@ urlpatterns = [
                   re_path('', include('applications.gestorPolos.urls')),
                   re_path('', include('applications.gestorUsuarios.urls')),
                   re_path('', include('applications.gestorVentas.urls')),
+                  re_path('', include('applications.probador.urls')),
                   # --ViewSets: CRUDS
                   re_path('', include('applications.gestorPolos.routers')),
                   re_path('', include('applications.gestorUsuarios.routers')),
