@@ -10,6 +10,9 @@ urlpatterns = [
     path('api/registerPoloFavorite/', views.RegisterFavoritePoloView.as_view(), name='registerPopularFavorite'),
     path('api/paginaItem/detailsPolo/<pk>', views.DetailsPoloView.as_view(), name='polo_details'),
     path('api/catalogo/polos/', views.PolosCatalogoView.as_view(), name='polos_catalogos'),
+    # path('api/catalogo/filter_polos/', views.FilterPolosCatalogoView.as_view(), name='filter_polos'),
+    # path('api/catalogo/filter_polos/?(<list_item>)/', views.FilterPolosCatalogoView.as_view(), name='filter_polos'),
+    # path('api/catalogo/filter_polos/<list_item>/', views.FilterPolosCatalogoView.as_view(), name='filter_polos'),
     path('api/catalogo/filter_polos/', views.FilterPolosCatalogoView.as_view(), name='filter_polos'),
     path('api/catalogo/filters/', views.FiltersCatalogo.as_view(), name='filters_catalogo'),
 

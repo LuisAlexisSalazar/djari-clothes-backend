@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -79,22 +79,50 @@ class FiltersCatalogo(APIView):
 
 # class CatalogoView(APIView):
 
-class FilterPolosCatalogoView(APIView):
-    serializer_class = FieldsToFilter
+class FilterPolosCatalogoView(ListAPIView):
+    # serializer_class = FieldsToFilter
+    # serializer_class = FieldsToFilter
+    serializer_class = PoloSerializerHome
     pagination_class = PaginationCatalogoSerializer
 
-    def post(self, request):
-        serializer = self.serializer_class(data=request.data)
-        print(request.data, "*" * 10)
-        serializer.is_valid()
-        print(serializer.errors)
-        if serializer.is_valid():
-            polos = Polo.objects.get_polos_to_filter(serializer.validated_data)
+    def get_queryset(self):
+        list_colors = self.request.GET.get('list_colors', [])
+        range_price = self.request.GET.get('range_price', [])
+        list_tallas = self.request.GET.get('list_tallas', [])
+        list_marcas = self.request.GET.get('list_marcas', [])
 
-            # !Importante poner many=TRUE
-            serializer = PoloSerializerHome(polos, many=True)
-            return Response(serializer.data)
-        return Response({'msj': 'Error en filtrar'})
+        if len(list_colors) != 0:
+            list_colors = list_colors.split(",")
+            list_colors = list(map(int, list_colors))
+
+        if len(range_price) != 0:
+            range_price = range_price.split(",")
+            range_price = list(map(int, range_price))
+        if len(list_tallas) != 0:
+            list_tallas = list_tallas.split(",")
+        if len(list_marcas) != 0:
+            list_marcas = list_marcas.split(",")
+            list_marcas = list(map(int, list_marcas))
+
+        data = {'list_colors': list_colors,
+                'range_price': range_price,
+                'list_tallas': list_tallas,
+                'list_marcas': list_marcas}
+        print(data)
+        polos = Polo.objects.get_polos_to_filter(data)
+        # !Importante poner many=TRUE
+        # serializer = PoloSerializerHome(polos, many=True)
+        # return Response(serializer.data)
+
+        # --Try solve pagintation
+        # paginator = LimitOffsetPagination()
+        # result_page = self.pagination_class.paginate_queryset(polos, request)
+        # serializer = PoloSerializerHome(result_page, many=True, context={'request': request})
+        # response = Response(serializer.data, status=status.HTTP_200_OK)
+        # return response
+        # return Polo.objects.all()
+        return polos
+        # return Response({'msj': 'Error en filtrar'})
 
 
 # +View to Fill Data
