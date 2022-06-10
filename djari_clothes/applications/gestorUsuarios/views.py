@@ -12,30 +12,35 @@ from djari_clothes.settings import *
 from djari_clothes.Fill_data.utils import *
 from django.db.models import Q
 from .utils import send_mail
+from django.contrib.auth import authenticate
 
 
 class CreateUserView(CreateAPIView):
     serializer_class = UserRegisterSerializer
 
-    def create(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data)
+        try:
+            if serializer.is_valid(raise_exception=True):
+                username = serializer.validated_data['username']
+                password = serializer.validated_data['password']
+                email = serializer.validated_data['email']
+                first_name = serializer.validated_data['first_name']
 
-        if serializer.is_valid(raise_exception=True):
-            username = serializer.validated_data['username']
-            password = serializer.validated_data['password']
-            email = serializer.validated_data['email']
-            first_name = serializer.validated_data['first_name']
-
-            user = User.objects.filter(Q(username=username) | Q(email=email))
-            if user.exists():
-                return Response({'msj': "Ya existe un usuario con email en uso o username, porfavor cambialo"})
-            else:
-                user = User.objects.create(username=username,
-                                           email=email,
-                                           password=password,
-                                           is_staff=True,
-                                           first_name=first_name)
-                return Response({'msj': "Usuario creado con exito"})
+                user = User.objects.filter(Q(username=username) | Q(email=email))
+                if user.exists():
+                    return Response({'Creation': False})
+                else:
+                    user = User.objects.create(username=username,
+                                               email=email,
+                                               password=password,
+                                               is_staff=True,
+                                               first_name=first_name)
+                    id = user.id
+                    return Response({'Creation': True,
+                                     'id': id})
+        except:
+            return Response({'Creation': False})
 
 
 class LoginUserView(APIView):
@@ -47,8 +52,10 @@ class LoginUserView(APIView):
         if serializer.is_valid():
             email = serializer.validated_data['email']
             password = serializer.validated_data['password']
-            user = User.objects.filter(email=email, password=password)
-            if user.exists():
+            # print(email,password)
+            # user = User.objects.filter(email=email, password=password)
+            user = User.objects.filter(email=email)
+            if user.exists() and authenticate(request, username=user[0].username, password=password):
                 return Response({"Credenciales": True})
             else:
                 return Response({"Credenciales": False})

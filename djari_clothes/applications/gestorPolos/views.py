@@ -62,6 +62,21 @@ class PolosCatalogoView(ListAPIView):
     pagination_class = PaginationCatalogoSerializer
 
 
+class FiltersCatalogo(APIView):
+    def get(self, request):
+        tallas = [x[0] for x in Polo.TALLAS]
+        marcas = [x[1] for x in Polo.MARCAS]
+        colores = [x[1] for x in Polo.COLORS]
+
+        filters = {
+            "tallas": tallas,
+            "marcas": marcas,
+            "colores": colores,
+            "rango_precio": [0, 350],
+        }
+        return Response(filters)
+
+
 # class CatalogoView(APIView):
 
 class FilterPolosCatalogoView(APIView):

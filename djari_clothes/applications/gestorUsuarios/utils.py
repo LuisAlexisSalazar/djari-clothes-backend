@@ -3,7 +3,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 username = 'luis.salazar.marroquin@ucsp.edu.pe'
-password = '181-10-42804'
+password = '72189788'
 
 
 def send_mail(id_user, text='Email_body', subject='Hello word', from_email=username, to_emails=[]):

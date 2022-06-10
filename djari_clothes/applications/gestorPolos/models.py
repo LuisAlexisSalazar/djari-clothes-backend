@@ -29,14 +29,14 @@ class Polo(TimeStampedModel):
     price = models.FloatField()
     stock = models.IntegerField()
 
-    TALAS = (
+    TALLAS = (
         ("S", 'Peuqeño'),
         ("M", 'Mediano'),
         ("L", 'Grande'),
         ("XL", 'X-Grande'),
     )
     # *Filtro
-    talla = models.CharField(max_length=2, choices=TALAS)
+    talla = models.CharField(max_length=2, choices=TALLAS)
     MARCAS = (
         (1, 'djari'),
         (2, 'Gucci'),
