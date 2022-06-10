@@ -83,7 +83,7 @@ class FilterPolosCatalogoView(APIView):
     serializer_class = FieldsToFilter
     pagination_class = PaginationCatalogoSerializer
 
-    def get(self, request):
+    def post(self, request):
         serializer = self.serializer_class(data=request.data)
         print(request.data, "*" * 10)
         serializer.is_valid()
