@@ -56,7 +56,8 @@ class LoginUserView(APIView):
             # user = User.objects.filter(email=email, password=password)
             user = User.objects.filter(email=email)
             if user.exists() and authenticate(request, username=user[0].username, password=password):
-                return Response({"Credenciales": True})
+                id = user[0].id
+                return Response({"Credenciales": True, "id": id})
             else:
                 return Response({"Credenciales": False})
         return Response({"msj": "Error en el formato de datos"})
