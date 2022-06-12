@@ -6,7 +6,7 @@ username = 'luis.salazar.marroquin@ucsp.edu.pe'
 password = '72189788'
 
 
-def send_mail(id_user, text='Email_body', subject='Hello word', from_email=username, to_emails=[]):
+def send_mail(id_user, text='Email_body', subject='DjariClothe - Solicitud de Recuperación de Contraseña', from_email=username, to_emails=[]):
     assert isinstance(to_emails, list)
     msg = MIMEMultipart('alternative')
     msg['From'] = from_email
