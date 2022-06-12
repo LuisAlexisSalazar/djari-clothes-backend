@@ -9,6 +9,7 @@ urlpatterns = [
     # toDo: cambiar la URL del password con un uuid
     path('api/ForgotPassword/sendEmail', views.SendEmailResetPassword.as_view()),
     path('api/ForgotPassword/newPassword/<pk>', views.ResetPasswordView.as_view()),
+    path('api/user/details/<pk>', views.DetailsUser.as_view()),
 
     # --View to fill data
     path('fillAdmins/', views.FillAdminView.as_view()),

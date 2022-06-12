@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from .models import AdminProfile, User
 from .serializers import AdminSerializer, UserSerializer, UserRegisterSerializer, UserLoginSerializer, \
-    ResetPasswordSerializer, EmailSerializer
+    ResetPasswordSerializer, EmailSerializer, UserDetails
 from rest_framework.generics import GenericAPIView
 import json
 from rest_framework.views import APIView
@@ -100,6 +100,15 @@ class ResetPasswordView(APIView):
                     return Response({"ResetPassword": True})
             except:
                 return Response({"msj": "Error desconocido"})
+
+
+class DetailsUser(APIView):
+
+    def get(self, request, pk):
+        id_user = self.kwargs.get('pk')
+        user = User.objects.get(pk=id_user)
+        serializer_data = UserDetails(user)
+        return Response(serializer_data.data)
 
 
 # +View to Fill Data
