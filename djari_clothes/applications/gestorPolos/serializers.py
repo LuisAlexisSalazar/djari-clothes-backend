@@ -46,6 +46,7 @@ class PaginationCatalogoSerializer(pagination.PageNumberPagination):
 
 class RegisterPoloSerializer(serializers.Serializer):
     id_polo = serializers.IntegerField()
+    id_user = serializers.IntegerField()
 
     def validate(self, data):
         if data['id_polo'] < 0:

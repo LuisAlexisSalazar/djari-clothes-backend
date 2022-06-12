@@ -25,8 +25,11 @@ class PopularPolosView(ListAPIView):
     serializer_class = PoloSerializerHome
 
     def get_queryset(self):
-        list_id = PoloFavorites.objects.get_list_most_popular()
-        queryset = Polo.objects.get_polos_from_list(list_id)
+        list_id_polos = PoloFavorites.objects.get_list_most_popular()
+        # id_user = self.kwargs.get('pk', None)
+        # user = User.objects.get(pk=id_user)
+        # list_id_polos = PoloFavorites.objects(client=user)[:10].values_list('polo', flat=True)
+        queryset = Polo.objects.get_polos_from_list(list_id_polos)
         return queryset
 
 
@@ -37,9 +40,10 @@ class RegisterFavoritePoloView(CreateAPIView):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         id_polo = serializer.validated_data['id_polo']
+        id_user = serializer.validated_data['id_user']
 
         polo = Polo.objects.get(pk=id_polo)
-        user = self.request.user
+        user = User.objects.get(pk=id_user)
 
         polo_favorite = PoloFavorites.objects.filter(client=user, polo=polo)
         if polo_favorite.exists():
@@ -123,6 +127,19 @@ class FilterPolosCatalogoView(ListAPIView):
         # return Polo.objects.all()
         return polos
         # return Response({'msj': 'Error en filtrar'})
+
+
+# class PolosFavoriteUser(ListAPIView):
+#     serializer_class = PoloSerializerHome
+#
+#     def get_queryset(self):
+#         # id_user = self.kwargs.get('pk', None)
+#         # id_user = pk
+#         # print(id_user)
+#         user = User.objects.get(pk=id_user)
+#         list_id_polos = PoloFavorites.objects(client=user)[:10].values_list('polo', flat=True)
+#         queryset = Polo.objects.get_polos_from_list(list_id_polos)
+#         return queryset
 
 
 # +View to Fill Data
