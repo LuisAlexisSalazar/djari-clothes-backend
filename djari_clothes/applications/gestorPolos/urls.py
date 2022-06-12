@@ -13,7 +13,7 @@ urlpatterns = [
     path('api/catalogo/filter_polos/', views.FilterPolosCatalogoView.as_view(), name='filter_polos'),
     path('api/catalogo/filters/', views.FiltersCatalogo.as_view(), name='filters_catalogo'),
     # todo: Hacer para un usuario
-    # path('api/user/poloFavorite/<pk>', views.FiltersCatalogo.as_view(), name='filters_catalogo'),
+    path('api/user/poloFavorite/<pk>', views.PolosFavoriteUser.as_view(), name='filters_catalogo'),
 
     # --View to fill data
     path('fillPolos/', views.FillPolosView.as_view()),

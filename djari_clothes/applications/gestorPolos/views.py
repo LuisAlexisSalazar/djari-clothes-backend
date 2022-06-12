@@ -129,17 +129,22 @@ class FilterPolosCatalogoView(ListAPIView):
         # return Response({'msj': 'Error en filtrar'})
 
 
-# class PolosFavoriteUser(ListAPIView):
-#     serializer_class = PoloSerializerHome
-#
-#     def get_queryset(self):
-#         # id_user = self.kwargs.get('pk', None)
-#         # id_user = pk
-#         # print(id_user)
-#         user = User.objects.get(pk=id_user)
-#         list_id_polos = PoloFavorites.objects(client=user)[:10].values_list('polo', flat=True)
-#         queryset = Polo.objects.get_polos_from_list(list_id_polos)
-#         return queryset
+class PolosFavoriteUser(ListAPIView):
+    serializer_class = PoloSerializerHome
+
+    def get_queryset(self):
+        id_user = self.kwargs.get('pk')
+        # Parametros de la url con el signo ?<
+        # query_params = self.request.query_params
+        # id_user = query_params.get('pk')
+        # print(id_user)
+
+        user = User.objects.get(pk=id_user)
+        list_id_polos = PoloFavorites.objects.filter(client=user)[:10].values_list('polo', flat=True)
+        # print(list_id_polos)
+        queryset = Polo.objects.get_polos_from_list(list_id_polos)
+        return queryset
+        # return Polo.objects.all()
 
 
 # +View to Fill Data
