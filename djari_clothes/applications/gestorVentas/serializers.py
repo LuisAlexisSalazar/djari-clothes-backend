@@ -21,3 +21,4 @@ class ArrayIntegerSerializer(serializers.ListField):
 class DetailSail_to_ShopingCarSerializer(serializers.Serializer):
     list_id_polos = ArrayIntegerSerializer()
     list_count = ArrayIntegerSerializer()
+    id_user = serializers.IntegerField()

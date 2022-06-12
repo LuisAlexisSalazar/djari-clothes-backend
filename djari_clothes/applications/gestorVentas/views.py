@@ -15,10 +15,16 @@ class SaleView(CreateAPIView):
 
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data)
+
+
         if serializer.is_valid():
-            client = request.user
+            # print(serializer.errors)
+            print("Datos validos")
+            id_user = serializer.validated_data['id_user']
+            client = User.objects.get(pk=id_user)
             list_id_polos = serializer.validated_data['list_id_polos']
             list_count = serializer.validated_data['list_count']
+
             sale = Sale.objects.create(amount=0, count=0, client=client)
             sale.save()
 
