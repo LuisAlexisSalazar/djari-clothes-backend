@@ -15,8 +15,8 @@ def send_mail(id_user, text='Email_body', subject='Hello word', from_email=usern
     txt_part = MIMEText(text, 'plain')
     msg.attach(txt_part)
     # id_user = user.id
-    to_url_reset_password = "http://127.0.0.1:8000/api/ForgotPassword/newPassword/" + id_user
-    html_part = MIMEText(f"<p>Link que debe estar en un boton</p> <a href={to_url_reset_password}>link </a>", 'html')
+    to_url_reset_password = "http://localhost:8080/passwd-recover"
+    html_part = MIMEText(f"<p>Ingrese al enlace para poder cambiar su contraseña: </p> <a href={to_url_reset_password}>link </a>", 'html')
     msg.attach(html_part)
     msg_str = msg.as_string()
 
