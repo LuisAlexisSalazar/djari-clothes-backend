@@ -131,7 +131,7 @@ class FilterPolosCatalogoView(ListAPIView):
 
 class PolosFavoriteUser(ListAPIView):
     serializer_class = PoloSerializerHome
-
+    pagination_class = PaginationCatalogoSerializer
     def get_queryset(self):
         id_user = self.kwargs.get('pk')
         # Parametros de la url con el signo ?<
