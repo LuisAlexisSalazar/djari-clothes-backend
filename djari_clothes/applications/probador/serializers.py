@@ -2,8 +2,8 @@ from rest_framework import serializers
 
 
 class ProbadorSerializer(serializers.Serializer):
-    image_person = serializers.ImageField()
-    shirt_person = serializers.ImageField()
+    file_person = serializers.ImageField()
+    id_polo = serializers.IntegerField()
 
 
 class UrlGoogleColaboraty(serializers.Serializer):
