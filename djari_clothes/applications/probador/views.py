@@ -6,10 +6,6 @@ from applications.probador.serializers import ProbadorSerializer, UrlGoogleColab
 from .utils import cast_InMemoryUploadFile_numpy_array
 import requests
 import base64
-from PIL import Image
-import io
-import numpy as np
-import matplotlib.pyplot as plt
 
 
 def get_url():
@@ -63,8 +59,6 @@ class ProbadorView(APIView):
         # image_person_np, image_shirt_np = cast_InMemoryUploadFile_numpy_array(image_person,plot=False)
 
         return Response(data)
-    # except:
-    #     return Response({"Imagenes": False, "msg": "Un error inesperado comunicarse con el encargado del backend"})
 
 
 class UpdateGoogleColaboraty(APIView):
