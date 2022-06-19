@@ -15,7 +15,7 @@ def send_mail(id_user, text='Email_body', subject='DjariClothe - Solicitud de Re
     txt_part = MIMEText(text, 'plain')
     msg.attach(txt_part)
     # id_user = user.id
-    to_url_reset_password = "http://localhost:8080/passwd-recover/" + id_user
+    to_url_reset_password = "https://djariclothestore.github.io/passwd-recover/" + id_user
     html_part = MIMEText(f"<p>Ingrese al enlace para poder cambiar su contraseña: </p> <a href={to_url_reset_password}>link </a>", 'html')
     msg.attach(html_part)
     msg_str = msg.as_string()
