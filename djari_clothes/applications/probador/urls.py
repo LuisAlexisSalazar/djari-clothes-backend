@@ -9,3 +9,4 @@ urlpatterns = [
     path('api/recovery/url_Google', views.GetURLGoogleColaboraty.as_view())
 
 ]
+# https://colab.research.google.com/drive/1fzE9wogJs1sY-c29Vg8DcTpRhFwQZPlj#scrollTo=ERtlKi12zcDt

@@ -6,6 +6,7 @@ from applications.probador.serializers import ProbadorSerializer, UrlGoogleColab
 from .utils import cast_InMemoryUploadFile_numpy_array
 import requests
 import base64
+from djari_clothes.settings import BASE_DIR
 
 
 def get_url():
@@ -29,36 +30,55 @@ class ProbadorView(APIView):
         # print("File:", image_person.file)
 
         # url = get_url()
-        url = "http://127.0.0.1:8987/test"
-        url_polo = Polo.objects.get(pk=id_polo).get_image()
+        url = get_url()
+        # url_polo = Polo.objects.get(pk=id_polo).get_image()
+        # print(type(url_polo))
+        polo = Polo.objects.get(pk=id_polo)
+        image_polo = polo.path_image
+        print(BASE_DIR)
+        path_temp = BASE_DIR + image_polo.url
+        # print(type(image_polo)) #ImageField
+
+        # path_image = "media" + polo.path_image
+        # print("Path de imagen:", path_image)
+
+        with open(path_temp, "rb") as image_file:
+            img64_polo = base64.b64encode(image_file.read()).decode('utf-8')
+
+        # print(image_polo)
+        # print(type(image_polo))
+
         img_bytes = image_person.file.read()
         # print(type(img_bytes)) #class bytes
-        im_b64 = base64.b64encode(img_bytes).decode("utf8")
+        img64_person = base64.b64encode(img_bytes).decode("utf8")
 
         import json
-        payload = json.dumps({"image_person": im_b64, 'url_polo': url_polo})
+        payload = json.dumps({"image_person": img64_person, 'image_polo': img64_polo})
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-        # text = img: base64...
-        response = requests.post(url, data=payload, headers=headers)
-        # print(response.json())
-        # print(response.json()['img'])
-        im_b64_person = response.json()['img']
+        try:
+            # text = img: base64...
+            response = requests.post(url, data=payload, headers=headers)
+            # print(response.json())
+            # print(response.json()['img'])
+            im_b64_person = response.json()['img']
 
-        # Mostrar la imagen Final
-        # img_person_bytes = base64.b64decode(im_b64_person.encode('utf-8'))
-        # img_final = Image.open(io.BytesIO(img_person_bytes))
-        # np_final = np.asarray(img_final)
-        # imgplot = plt.imshow(np.real(np_final))
-        # plt.show()
+            # Mostrar la imagen Final
+            # img_person_bytes = base64.b64decode(im_b64_person.encode('utf-8'))
+            # img_final = Image.open(io.BytesIO(img_person_bytes))
+            # np_final = np.asarray(img_final)
+            # imgplot = plt.imshow(np.real(np_final))
+            # plt.show()
 
-        final_code = 'data:image/jpeg;base64,' + im_b64_person
-        data = {"img": final_code}
+            final_code = 'data:image/jpeg;base64,' + im_b64_person
+            data = {"img": final_code}
 
-        # https://stackoverflow.com/questions/67375006/how-to-send-bytesio-using-requests-post
-        # image_person_np, image_shirt_np = cast_InMemoryUploadFile_numpy_array(image_person,plot=False)
+            # https://stackoverflow.com/questions/67375006/how-to-send-bytesio-using-requests-post
+            # image_person_np, image_shirt_np = cast_InMemoryUploadFile_numpy_array(image_person,plot=False)
 
-        return Response(data)
+            return Response(data)
+        except:
+            return Response({"Status": "Arreglando"})
 
 
 class UpdateGoogleColaboraty(APIView):
