@@ -1,0 +1,402 @@
+[
+  {
+    "colorPredonimante": "Blanco",
+    "name_modelo": "Ventosanzap",
+    "description": "Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
+    "price": 89,
+    "id_emprendedor": 8,
+    "id_marca": 2
+  },
+  {
+    "colorPredonimante": "Naranja",
+    "name_modelo": "Tampflex",
+    "description": "Vestibulum ante ipsum primis in faucibus orci neque. Duis bibendum. Morbi non quam nec dui luctus ret at, feugiat non, pretiumpotenti. In eleifend quam a odio.",
+    "price": 199,
+    "id_emprendedor": 9,
+    "id_marca": 10
+  },
+  {
+    "colorPredonimante": "Verde",
+    "name_modelo": "Overhold",
+    "description": "Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tinciduus dui vel sem.",
+    "price": 95,
+    "id_emprendedor": 2,
+    "id_marca": 6
+  },
+  {
+    "colorPredonimante": "Celeste",
+    "name_modelo": "Andalax",
+    "description": "Nulla nisl.",
+    "price": 73,
+    "id_emprendedor": 2,
+    "id_marca": 11
+  },
+  {
+    "colorPredonimante": "Celeste",
+    "name_modelo": "Fintone",
+    "description": "Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices nc viverra dapibus. Nulla suscipit ligula in lacuus semper interdum. Mauris ullamcorper purus sit amet nulla.",
+    "price": 76,
+    "id_emprendedor": 3,
+    "id_marca": 2
+  },
+  {
+    "colorPredonimante": "Verde",
+    "name_modelo": "Latlux",
+    "description": "Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at vel, viverra eget, congue eget, semper rutrum, nulla.",
+    "price": 175,
+    "id_emprendedor": 2,
+    "id_marca": 4
+  },
+  {
+    "colorPredonimante": "Naranja",
+    "name_modelo": "Duobam",
+    "description": "Donec ut mauris eget massa tempor convallis. Nulla neque liberat et, eros. Vestibulum ac est lacinia nisi venenatis tristique.",
+    "price": 102,
+    "id_emprendedor": 1,
+    "id_marca": 9
+  },
+  {
+    "colorPredonimante": "Morado",
+    "name_modelo": "Stronghold",
+    "description": "Maecenas tristique, est et tempus sempe quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sndum imperdiet.",
+    "price": 188,
+    "id_emprendedor": 6,
+    "id_marca": 4
+  },
+  {
+    "colorPredonimante": "Blanco",
+    "name_modelo": "Voyatouch",
+    "description": "Aenean lectus. Pellentesque eget nunc. Donec q erat. Nulla tempus.",
+    "price": 193,
+    "id_emprendedor": 8,
+    "id_marca": 3
+  },
+  {
+    "colorPredonimante": "Negro",
+    "name_modelo": "Tampflex",
+    "description": "Phasellus sit amet erat. N turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.",
+    "price": 140,
+    "id_emprendedor": 1,
+    "id_marca": 1
+  },
+  {
+    "colorPredonimante": "Blanco",
+    "name_modelo": "Cookley",
+    "description": "Nulla suscipit ligula in lacus.",
+    "price": 194,
+    "id_emprendedor": 3,
+    "id_marca": 4
+  },
+  {
+    "colorPredonimante": "Negro",
+    "name_modelo": "Transcof",
+    "description": "Vestibulum ac est lacinia nisi venenatis tristique.",
+    "price": 86,
+    "id_emprendedor": 2,
+    "id_marca": 11
+  },
+  {
+    "colorPredonimante": "Amarillo",
+    "name_modelo": "Alphazap",
+    "description": "Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in po Duis at velit eu est congue elementum. In hac habitasse platea dictumst.",
+    "price": 162,
+    "id_emprendedor": 2,
+    "id_marca": 7
+  },
+  {
+    "colorPredonimante": "Naranja",
+    "name_modelo": "Veribet",
+    "description": "Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",
+    "price": 74,
+    "id_emprendedor": 9,
+    "id_marca": 10
+  },
+  {
+    "colorPredonimante": "Morado",
+    "name_modelo": "Opela",
+    "description": "In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitassm faucibus cursus urna. Ut tellus.",
+    "price": 93,
+    "id_emprendedor": 3,
+    "id_marca": 2
+  },
+  {
+    "colorPredonimante": "Morado",
+    "name_modelo": "Zamit",
+    "description": "Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie",
+    "price": 68,
+    "id_emprendedor": 8,
+    "id_marca": 1
+  },
+  {
+    "colorPredonimante": "Naranja",
+    "name_modelo": "Voyatouch",
+    "description": "Mauris sit amet eros.",
+    "price": 72,
+    "id_emprendedor": 2,
+    "id_marca": 7
+  },
+  {
+    "colorPredonimante": "Celeste",
+    "name_modelo": "Bitchip",
+    "description": "Etiam pretium iaculis justo. In hac habitasse platea  Nulla facilisi. Cras non velit nec nisi vulputate nonummy.",
+    "price": 106,
+    "id_emprendedor": 4,
+    "id_marca": 2
+  },
+  {
+    "colorPredonimante": "Morado",
+    "name_modelo": "Veribet",
+    "description": "Cras mi pede, malesuada in, imperdiet et, la pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.",
+    "price": 66,
+    "id_emprendedor": 2,
+    "id_marca": 6
+  },
+  {
+    "colorPredonimante": "Verde",
+    "name_modelo": "Namfix",
+    "description": "Fusce lacus purus, apendisse potenti.",
+    "price": 105,
+    "id_emprendedor": 2,
+    "id_marca": 1
+  },
+  {
+    "colorPredonimante": "Amarillo",
+    "name_modelo": "Cardguard",
+    "description": "Aliquam non mauris. Morbi non lectus. Adunt eu, felis. Fusce posuere felis sed lacus. Morbiar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis.",
+    "price": 152,
+    "id_emprendedor": 2,
+    "id_marca": 1
+  },
+  {
+    "colorPredonimante": "Amarillo",
+    "name_modelo": "Biodex",
+    "description": "Morbi ut odio. Cras mi pede, malesuada in, impertrices.",
+    "price": 193,
+    "id_emprendedor": 5,
+    "id_marca": 8
+  },
+  {
+    "colorPredonimante": "Amarillo",
+    "name_modelo": "Fixflex",
+    "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultri. Nullam porttitor lacus at turpis.",
+    "price": 69,
+    "id_emprendedor": 7,
+    "id_marca": 2
+  },
+  {
+    "colorPredonimante": "Rojo",
+    "name_modelo": "Konklux",
+    "description": "Morbi a ipsum. Integer a nibh.",
+    "price": 115,
+    "id_emprendedor": 4,
+    "id_marca": 9
+  },
+  {
+    "colorPredonimante": "Azul",
+    "name_modelo": "Alpha",
+    "description": "Proin eu mi. Nulla ac enim. In tempor, turpisuere nonummy. Integer non velit.",
+    "price": 103,
+    "id_emprendedor": 7,
+    "id_marca": 11
+  },
+  {
+    "colorPredonimante": "Blanco",
+    "name_modelo": "Asoka",
+    "description": "Nam congue, riibh in lectus. Pellentesque at nulla. Suspendisse potenti.",
+    "price": 122,
+    "id_emprendedor": 3,
+    "id_marca": 8
+  },
+  {
+    "colorPredonimante": "Morado",
+    "name_modelo": "Tresom",
+    "description": "Aliquam sit amet diam in magna bibendum imperlacus.",
+    "price": 133,
+    "id_emprendedor": 2,
+    "id_marca": 2
+  },
+  {
+    "colorPredonimante": "Negro",
+    "name_modelo": "Lotlux",
+    "description": "Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.",
+    "price": 90,
+    "id_emprendedor": 2,
+    "id_marca": 3
+  },
+  {
+    "colorPredonimante": "Verde",
+    "name_modelo": "Cardguard",
+    "description": "Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi noelis sed lacus. Morbi sem mauris, laoreet ut, rhonel sem. Sed sagittis.",
+    "price": 103,
+    "id_emprendedor": 2,
+    "id_marca": 7
+  },
+  {
+    "colorPredonimante": "Blanco",
+    "name_modelo": "Ventosanzap",
+    "description": "Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie  rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",
+    "price": 138,
+    "id_emprendedor": 4,
+    "id_marca": 7
+  },
+  {
+    "colorPredonimante": "Naranja",
+    "name_modelo": "It",
+    "description": "Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nullaiquam convallis nunc. Proin posuere nonummy.",
+    "price": 200,
+    "id_emprendedor": 5,
+    "id_marca": 10
+  },
+  {
+    "colorPredonimante": "Amarillo",
+    "name_modelo": "Flowdesk",
+    "description": "Morbi non quam nec dui luctus rutrum. Nulla tellus. i. In eleifend quam a odio.",
+    "price": 80,
+    "id_emprendedor": 7,
+    "id_marca": 7
+  },
+  {
+    "colorPredonimante": "Rojo",
+    "name_modelo": "Quo Lux",
+    "description": "Curabitur in libero ut masus in felis eu sapien cursus vestibulum.",
+    "price": 82,
+    "id_emprendedor": 3,
+    "id_marca": 1
+  },
+  {
+    "colorPredonimante": "Azul",
+    "name_modelo": "Zontrax",
+    "description": "Aenean lectus.",
+    "price": 170,
+    "id_emprendedor": 8,
+    "id_marca": 11
+  },
+  {
+    "colorPredonimante": "Morado",
+    "name_modelo": "Overhold",
+    "description": "Nulla mollis molestie lorem. Quisque ut erat.",
+    "price": 148,
+    "id_emprendedor": 9,
+    "id_marca": 1
+  },
+  {
+    "colorPredonimante": "Celeste",
+    "name_modelo": "Bitwolf",
+    "description": "Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. M, molestie sed, justo. Pellentesque viverra pede ac diam.",
+    "price": 142,
+    "id_emprendedor": 7,
+    "id_marca": 1
+  },
+  {
+    "colorPredonimante": "Azul",
+    "name_modelo": "Subin",
+    "description": "Duis mattis egestas metus.",
+    "price": 146,
+    "id_emprendedor": 10,
+    "id_marca": 6
+  },
+  {
+    "colorPredonimante": "Naranja",
+    "name_modelo": "Regrant",
+    "description": "Maecenas rhoncus aliquam lacus. Morbi quis tortor iPellentesque viverra pede ac diam.",
+    "price": 131,
+    "id_emprendedor": 1,
+    "id_marca": 4
+  },
+  {
+    "colorPredonimante": "Negro",
+    "name_modelo": "Konklab",
+    "description": "Nulla tempus. Vivamus in felisagna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.",
+    "price": 61,
+    "id_emprendedor": 4,
+    "id_marca": 1
+  },
+  {
+    "colorPredonimante": "Negro",
+    "name_modelo": "Konklab",
+    "description": "Integer a nibh. In quis justo diam vitae quam. Suspendisse potenti.",
+    "price": 130,
+    "id_emprendedor": 9,
+    "id_marca": 7
+  },
+  {
+    "colorPredonimante": "Celeste",
+    "name_modelo": "Zathin",
+    "description": "Nulla ut  volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis.",
+    "price": 108,
+    "id_emprendedor": 1,
+    "id_marca": 2
+  },
+  {
+    "colorPredonimante": "Morado",
+    "name_modelo": "Redhold",
+    "description": "Duis aliquam  orci luctus et ultrices posuere cubilia mi, sit amet lobortis sapien sapien non mi.",
+    "price": 94,
+    "id_emprendedor": 7,
+    "id_marca": 11
+  },
+  {
+    "colorPredonimante": "Blanco",
+    "name_modelo": "Bitchip",
+    "description": "Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.",
+    "price": 145,
+    "id_emprendedor": 1,
+    "id_marca": 9
+  },
+  {
+    "colorPredonimante": "Amarillo",
+    "name_modelo": "Zontrax",
+    "description": "Integer  faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.",
+    "price": 193,
+    "id_emprendedor": 7,
+    "id_marca": 3
+  },
+  {
+    "colorPredonimante": "Azul",
+    "name_modelo": "Bigtax",
+    "description": "Duis ac nibh.",
+    "price": 149,
+    "id_emprendedor": 4,
+    "id_marca": 7
+  },
+  {
+    "colorPredonimante": "Negro",
+    "name_modelo": "Andalax",
+    "description": "Maecenas tincidunt lacus at  in, consequat ut, nulla. Sed accumsan felis.",
+    "price": 91,
+    "id_emprendedor": 7,
+    "id_marca": 9
+  },
+  {
+    "colorPredonimante": "Azul",
+    "name_modelo": "Biodex",
+    "description": "Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
+    "price": 165,
+    "id_emprendedor": 6,
+    "id_marca": 5
+  },
+  {
+    "colorPredonimante": "Naranja",
+    "name_modelo": "Ronstring",
+    "description": "Nam ultrices, libero non mattis at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.",
+    "price": 152,
+    "id_emprendedor": 7,
+    "id_marca": 10
+  },
+  {
+    "colorPredonimante": "Rojo",
+    "name_modelo": "Domainer",
+    "description": "Morbi vestibulum, velit id pretium  Sed ante. Vivamus tortor. Duis mattis egestas metus.",
+    "price": 161,
+    "id_emprendedor": 9,
+    "id_marca": 6
+  },
+  {
+    "colorPredonimante": "Negro",
+    "name_modelo": "Latlux",
+    "description": "In hac habitasse pla urna. Ut tellus. Nulla ut erat id mauris vulputate elementum.",
+    "price": 72,
+    "id_emprendedor": 8,
+    "id_marca": 2
+  }
+]
